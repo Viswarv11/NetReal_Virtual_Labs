@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NetReal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+ <link href="{{ url_for('static', filename='img/NetReal.png') }}" rel="icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!-- Vendor CSS Files -->
+
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+     <h1 class="logo me-auto"><a href="{{ url_for('index') }}">NetReal</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+         <li><a class="nav-link " href="{{ url_for('course') }}">Courses</a></li>
+            <li><a class="getstarted scrollto " href="{{ url_for('profile') }}">Profile</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
+  <br>
+  <main id="main">
+      <section id="contact" class="contact">
+      <div class="container" >
+
+        <div class="section-title">
+          <h2>Explore Our Courses</h2></div>
+          <div class="content">
+    <!-- Header -->
+
+
+    <!-- Courses Section -->
+    <div class="container mt-4">
+    <div class="row">
+        <!-- Course Card 2 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <i class="fas fa-shield-alt card-icon fa-4x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Cybersecurity</h5>
+                    <p class="card-text text-center">Learn how to protect against cyber threats.</p>
+                    <div class="text-center">
+                        <a href="{{ url_for('cyber_page') }}" class="btn btn-primary">Enroll</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <i class="fas fa-network-wired card-icon fa-4x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Network Engineering</h5>
+                    <p class="card-text text-center">Discover the world of network engineering.</p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-primary">Enroll</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+      </div>
+           </section>
+  </main>
+<footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>NetReal</span></strong>
+      </div>
+
+
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body></html>

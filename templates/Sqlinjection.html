@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NetReal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+ <link href="{{ url_for('static', filename='img/NetReal.png') }}" rel="icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Vendor CSS Files -->
+
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+     <h1 class="logo me-auto"><a href="{{ url_for('index') }}">NetReal</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link " href="{{ url_for('course') }}">Courses</a></li>
+{% if 'user_email' in session %}
+    <li><a class="getstarted scrollto" href="{{ url_for('profile') }}">Profile</a></li>
+{% else %}
+    <li><a class="getstarted scrollto" href="{{ url_for('login_register') }}">Register/Login</a></li>
+{% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
+  <br>
+  <main id="main">
+
+      <section id="portfolio" class="portfolio">
+      <div class="container" >
+
+        <div class="section-title">
+          <h2>Sql-Injection</h2>
+        </div>
+          <div class="row">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="{{ url_for('static', filename='img/Sqlinjection.png') }}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Sql Injection</h4>
+              <p></p>
+                  </div>
+          </div>
+              <div class="col-lg-8 col-md-6 portfolio-item filter-card">
+    <div class="alert alert-success" role="alert" style="display: flex; justify-content: space-between; align-items: center;">
+        <strong>Perform your tasks with the VM</strong>
+        <button class="btn btn-primary">Start VM</button>
+    </div>
+</div>
+
+          <div class="row">
+
+          </div></div>
+      </div></section>
+
+  </main>
+<footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>NetReal</span></strong>
+      </div>
+
+
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body></html>
