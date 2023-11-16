@@ -64,23 +64,86 @@
 
         <div class="section-title">
           <h2>CyberSecurity</h2>
+            <div>
+           <div class="container my-4">
+
+    <!-- Module 1 -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1 class="card-title">Introduction to Network module</h1>
+            <a class="btn btn-primary" href="{{ url_for('task_page') }}">Start Module</a>
             <div class="row">
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="{{ url_for('static', filename='img/nmap.png') }}" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Nmap</h4>
-              <p></p>
-               <a href="{{ url_for('nmap_page') }}" class="details-link" title="Register"><i class="bx bx-link"></i></a>
+                <div class="col-md-5">
+                    <img src="{{ url_for('static', filename='img/nmap.png') }}" class="img-fluid" alt="Nmap Introduction">
+                </div>
+                <div class="col-md-7">
+                    <p class="font-weight-bold">Description:</p>
+                    <p>Nmap is a powerful open-source tool for network scanning and security auditing. In this module, you will learn the basics of Nmap and its importance in network security.</p>
+                    <p class="font-weight-bold">Module Content:</p>
+                    <ul class="list-unstyled">
+                        <li>Understanding the fundamentals of network scanning</li>
+                        <li>Installing Nmap</li>
+                        <li>Scanning options and techniques</li>
+                    </ul>
+                </div>
             </div>
-          </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="{{ url_for('static', filename='img/Sqlinjection.png') }}" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Sql Injection</h4>
-              <p></p>
-               <a href="{{ url_for('sql_injection_page') }}" class="details-link" title="Register"><i class="bx bx-link"></i></a>
+        </div>
+    </div>
+
+    <!-- Module 2 -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1 class="card-title">Module 2: Advanced Nmap Scanning</h1>
+            <a class="btn btn-primary" href="#">Start Module</a>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ url_for('static', filename='img/Nmap2.jpg') }}" class="img-fluid" alt="Advanced Nmap Scanning">
+                </div>
+                <div class="col-md-7">
+                    <p class="font-weight-bold">Description:</p>
+                    <p>This module delves into advanced Nmap scanning techniques. You will learn how to perform comprehensive network scans and gather valuable information about your target.</p>
+                    <p class="font-weight-bold">Module Content:</p>
+                    <ul class="list-unstyled">
+                        <li>Advanced scanning options and scripts</li>
+                        <li>Output formats and reporting</li>
+                        <li>Scanning best practices</li>
+                    </ul>
+                </div>
             </div>
-          </div>
+        </div>
+    </div>
+
+    <!-- Related Modules -->
+{#    <div class="card-deck">#}
+{#        <div class="card">#}
+{#            <img src="{{ url_for('static', filename='img/image3.jpg') }}" class="card-img-top img-fluid" alt="Module 2">#}
+{#            <div class="card-body">#}
+{#                <h5 class="card-title">Module 2</h5>#}
+{#                <p class="card-text">Advanced Nmap Scanning</p>#}
+{#                <a href="#" class="btn btn-primary float-right">Explore</a>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="card">#}
+{#            <img src="{{ url_for('static', filename='img/image3.jpg') }}" class="card-img-top img-fluid" alt="Module 2">#}
+{#            <div class="card-body">#}
+{#                <h5 class="card-title">Module 2</h5>#}
+{#                <p class="card-text">Advanced Nmap Scanning</p>#}
+{#                <a href="#" class="btn btn-primary float-right">Explore</a>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="card">#}
+{#            <img src="{{ url_for('static', filename='img/image3.jpg') }}" class="card-img-top img-fluid" alt="Module 2">#}
+{#            <div class="card-body">#}
+{#                <h5 class="card-title">Module 2</h5>#}
+{#                <p class="card-text">Advanced Nmap Scanning</p>#}
+{#                <a href="#" class="btn btn-primary float-right">Explore</a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+</div>
+
             </div></div>
       </div> </section>
   </main>

@@ -17,23 +17,36 @@ app.secret_key = '7PQkX3uRvJb4Gp5Y'
 @app.route('/')
 def index():
     return render_template("index.html")
+
+
 @app.route('/logout')
 def logout():
     # Clear the user's session data
     session.pop('user_email', None)
     # Redirect to the home page or any other desired page after logging out
     return redirect(url_for('index'))
+
+
 @app.route('/course')
 def course():
     return render_template('Course.html')
+
+
 @app.route('/sqlinjection')
 def sql_injection_page():
     # Your code to render the Sqlinjection.html page here
     return render_template('Sqlinjection.html')
+
+
 @app.route('/nmap')
 def nmap_page():
     # Your code to render the nmap.html page here
     return render_template('nmap.html')
+
+
+@app.route('/Taskpage1')
+def task_page():
+    return render_template('TaskPage1.html')
 
 
 @app.route('/register', methods=['POST'])
@@ -69,6 +82,7 @@ def register():
 
     return render_template('LoginReg.html')  # Redirect back to the registration page
 
+
 @app.route('/profile')
 def profile():
     if 'user_email' in session:
@@ -89,10 +103,12 @@ def profile():
 
         if user_data:
             # Pass user data to the profile.html template
-            return render_template('profile.html',user_data=user_data)
+            return render_template('profile.html', user_data=user_data)
 
     return redirect('/login')
- # Redirect to login if not logged in
+
+
+# Redirect to login if not logged in
 
 
 # Route for login
@@ -121,16 +137,18 @@ def login():
             flash("Invalid email or password. Please try again.", "danger")
 
     return render_template('LoginReg.html')
+
+
 @app.route('/cyber')
 def cyber_page():
     # You can add any necessary logic here before rendering the template
     return render_template('Cyber.html')
+
 
 @app.route('/LoginRegister')
 def login_register():
     return render_template('LoginReg.html')
 
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
