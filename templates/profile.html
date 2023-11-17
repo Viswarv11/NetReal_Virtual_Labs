@@ -63,18 +63,17 @@
           <h2>User Profile</h2>
            </div>
        <div class="row">
-        <div class="col-md-4">
-         <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{ url_for('static', filename='img/account.png') }}" alt="Card image cap">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ url_for('static', filename='img/account.png') }}" alt="Card image cap">
     <div class="card-body">
-    <h5 class="card-title">{{ user_data[1] }} {{ user_data[2] }}</h5>
-    <p class="card-text">Email: {{ user_data[4] }}</p>
-    <p class="card-text">Mobile: {{ user_data[3] }}</p>
+    <h5 class="card-title">{{ user_data[0] }} {{ user_data[1] }}</h5>
+    <p class="card-text">Email: {{ user_data[3] }}</p>
+    <p class="card-text">Mobile: {{ user_data[2] }}</p>
 </div>
 <ul class="list-group list-group-flush">
-    <li class="list-group-item">User ID: {{ user_data[0] }}</li>
-    <li class="list-group-item">Password: {{ user_data[5] }}</li>
-    {% if user_data[6] == 1 %}
+    <li class="list-group-item">User ID: {{ user_data[4] }}</li>
+    {% if user_data[5] == 1 %}
         <div class="alert alert-success" role="alert">
        Admin
 </div>
@@ -86,32 +85,19 @@
     </a></li>
 {% endif %}
 </ul>
-         </div></div>
-       <div class="col-md-8">
-         <div class="card" style="width: 24rem;">
-    <img class="card-img-top" src="{{ url_for('static', filename='img/account.png') }}" alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title">{{ user_data[1] }} {{ user_data[2] }}</h5>
-    <p class="card-text">Email: {{ user_data[4] }}</p>
-    <p class="card-text">Mobile: {{ user_data[3] }}</p>
-</div>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">User ID: {{ user_data[0] }}</li>
-    <li class="list-group-item">Password: {{ user_data[5] }}</li>
-    {% if user_data[6] == 1 %}
-        <div class="alert alert-success" role="alert">
-       Admin
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card" style="width: 24rem;">
+            <div class="card-body">
+                <h5 class="card-title">Enrolled Courses</h5>
+                <p class="card-text"></p>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
 </div>
 
-    {% endif %}
-{% if 'user_email' in session %}
-    <li class="list-group-item"><a class="getstarted scrollto btn btn-danger" href="{{ url_for('logout') }}">
-        Logout
-    </a></li>
-{% endif %}
-</ul>
-         </div></div>
-       </div>
 
 
       </div> </section>

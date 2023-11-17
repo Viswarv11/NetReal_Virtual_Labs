@@ -46,8 +46,11 @@
         <ul>
           <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
          <li><a class="nav-link " href="{{ url_for('course') }}">Courses</a></li>
-            <li><a class="getstarted scrollto " href="{{ url_for('profile') }}">Profile</a></li>
-
+           {% if 'user_email' in session %}
+    <li><a class="getstarted scrollto" href="{{ url_for('profile') }}">Profile</a></li>
+{% else %}
+    <li><a class="getstarted scrollto" href="{{ url_for('login_register') }}">Register/Login</a></li>
+{% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -115,6 +118,7 @@
 
     </div>
   </footer>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

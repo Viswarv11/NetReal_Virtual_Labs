@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NetReal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+ <link href="{{ url_for('static', filename='img/NetReal.png') }}" rel="icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Vendor CSS Files -->
+
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+<style>
+  .quiz-container {
+
+        }
+
+        .card {
+            background-color: #add8e6; /* Light Blue */
+            border: none;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-start {
+            margin-bottom: 20px;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        #alertBox {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+     <h1 class="logo me-auto"><a href="{{ url_for('index') }}">NetReal</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link " href="{{ url_for('course') }}">Courses</a></li>
+{% if 'user_email' in session %}
+    <li><a class="getstarted scrollto" href="{{ url_for('profile') }}">Profile</a></li>
+{% else %}
+    <li><a class="getstarted scrollto" href="{{ url_for('login_register') }}">Register/Login</a></li>
+{% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
+  <br>
+   <main id="main">
+    <section id="portfolio" class="portfolio">
+        <div class="container quiz-container">
+            <div class="section-title">
+                <h2>SQL Injection</h2>
+                <div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="text-center my-4">
+                                <h2 style="color: black">Master the Art of SQL Injection</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SQL Injection Box -->
+            </div>
+<div class="card">
+        <h3>Introduction to SQL Injection Vulnerabilities</h3>
+        <p>
+            SQL injection is a common and critical security vulnerability that arises when an attacker can manipulate an application's SQL query by injecting malicious SQL code.
+        </p>
+    </div>
+<br>
+    <!-- Card 2 -->
+    <div class="card">
+        <h3>Exploiting SQL Injection for Unauthorized Access</h3>
+        <p>
+            Attackers take advantage of poorly sanitized user inputs to inject malicious SQL code that can manipulate the logic of the SQL query, granting unauthorized access.
+        </p>
+    </div>
+<br>
+    <!-- Card 3 -->
+    <div class="card">
+        <h3>Mitigation Strategies and Best Practices</h3>
+        <p>
+            Mitigating SQL injection vulnerabilities requires a combination of secure coding practices and the use of prepared statements or parameterized queries.
+        </p>
+    </div>
+<br>
+                <div class="section-title">
+                    <h2>Test your Skills</h2>
+                    <div>
+
+            <div class="container quiz-container">
+                <!-- Start Machine Section -->
+                <div class="row my-4">
+                    <div class="col-md-8 mx-auto">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <p class="font-weight-bold">Start the target machine, and the IP will show here</p>
+                                <button id="startMachineBtn" class="btn btn-dark font-weight-bold" name="sql_injection">Start Machine</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div id="alertBox" class="alert" role="alert" style="display: none;"></div>
+                <!-- Question Rows -->
+                <div class="container mt-5">
+                    <div class="card-deck">
+                        <!-- SQL Injection Card -->
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">SQL Injection Basics</h5>
+                                    <!-- Additional content related to the title -->
+                                    <div class="alert alert-info" role="alert">
+                                        Explore the intricacies of SQL injection, a prevalent cybersecurity threat. This module provides an in-depth understanding of SQL injection vulnerabilities and techniques, equipping you with the knowledge to secure databases against potential attacks.
+                                    </div>
+                                    <!-- Highlighted question -->
+                                    <p class="card-text font-weight-bold">What is the main risk associated with SQL injection attacks?</p>
+                                    <!-- Blank input box for user's answer -->
+                                    <input type="text" class="form-control" placeholder="Your Answer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SQL Injection Card: Exploitation -->
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Exploiting SQL Injection</h5>
+                                    <!-- Additional content related to the title -->
+                                    <div class="alert alert-info" role="alert">
+                                        Delve into the techniques of exploiting SQL injection for unauthorized access. Understand the anatomy of SQL injection attacks and the potential impact on database security.
+                                    </div>
+                                    <!-- Highlighted question -->
+                                    <p class="card-text font-weight-bold">Provide an example SQL injection payload for extracting information from a database.</p>
+                                    <!-- Blank input box for user's answer -->
+                                    <input type="text" class="form-control" placeholder="Your Answer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SQL Injection Card: Mitigation -->
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mitigation Strategies</h5>
+                                    <!-- Additional content related to the title -->
+                                    <div class="alert alert-info" role="alert">
+                                        Learn effective mitigation strategies and best practices to defend against SQL injection attacks. Understand how to secure your applications and databases to prevent unauthorized access.
+                                    </div>
+                                    <!-- Highlighted question -->
+                                    <p class="card-text font-weight-bold">Name two common methods to mitigate SQL injection vulnerabilities.</p>
+                                    <!-- Blank input box for user's answer -->
+                                    <input type="text" class="form-control" placeholder="Your Answer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overall Submit Button -->
+                <div class="row my-4">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-success btn-submit" onclick="submitAllAnswers()">Submit All Answers</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>NetReal</span></strong>
+      </div>
+
+
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Add this script to your HTML file -->
+  <script>
+    $(document).ready(function () {
+        // Attach a click event handler to the button
+        $('#startMachineBtn').click(function () {
+             document.getElementById('startMachineBtn').disabled = true;
+
+            // Show loading state
+            document.getElementById('startMachineBtn').innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            `;
+
+            // Set a timeout to simulate a process (15 seconds in this case)
+            setTimeout(() => {
+                // Enable the button and restore its original content
+                document.getElementById('startMachineBtn').disabled = false;
+                document.getElementById('startMachineBtn').innerHTML = 'Start Machine';
+            }, 12000);
+            // Make an AJAX request
+            var osName = 'nmap'; // You may need to get the 'name' attribute of the button, not 'data-name'
+
+            // Create a FormData object to send form data
+            var formData = new FormData();
+            formData.append('name', osName);
+
+            fetch('/api/deploy-vm', {
+                method: 'POST',
+                body: formData,  // Send the form data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                // Handle the response data as needed
+
+                 var alertMessage = data.message + ' IP Address: ' + data.ip_address;
+
+                $('#alertBox').removeClass('alert-danger'); // Remove any existing alert class
+                $('#alertBox').addClass('alert-success');
+                $('#alertBox').text(alertMessage);
+                $('#alertBox').show();
+                // Optionally, perform actions based on the response
+                if (!data.success) {
+                    // If there's an error, change the alert box to danger
+                    $('#alertBox').removeClass('alert-success');
+                    $('#alertBox').addClass('alert-danger');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle errors
+            });
+        });
+    });
+
+</script>
+
+
+</body></html>

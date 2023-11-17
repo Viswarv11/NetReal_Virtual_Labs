@@ -29,7 +29,48 @@
 <!-- Template Main CSS File -->
 <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
+<style>
+  .quiz-container {
 
+        }
+
+        .card {
+            background-color: #add8e6; /* Light Blue */
+            border: none;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-start {
+            margin-bottom: 20px;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        #alertBox {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+</style>
 </head>
 
 <body>
@@ -57,121 +98,271 @@
     </div>
   </header>
   <br>
-  <main id="main">
+   <main id="main">
 
-      <section id="portfolio" class="portfolio">
-      <div class="container" >
+        <section id="portfolio" class="portfolio">
+            <div class="container quiz-container">
 
-        <div class="section-title">
-          <h2>NMap</h2>
-            <div>
-             <div class="row mt-4">
-            <div class="col-md-12">
-                <div class="text-center my-4">
-                 <h2 style="color: black" >Learn the basics of Network Enumeration</h2>
+                <div class="section-title">
+                    <h2>NMap</h2>
+                    <div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="text-center my-4">
+                                    <h2 style="color: black">Learn the basics of Network Enumeration</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nmap Box -->
                 </div>
-            </div>
+                 <div class="card">
+        <div class="card-header">
+            <h2>Understanding the Fundamentals of Network Scanning</h2>
         </div>
+        <div class="card-content">
+            <p>
+                Network scanning is a crucial aspect of cybersecurity, enabling professionals to assess the security posture of computer systems and networks.
+            </p>
+            <p>
+                It involves systematically probing a network for information about its hosts, services, and vulnerabilities.
+            </p>
+            <p>
+                Network scanning is an essential step in identifying potential weaknesses that malicious actors could exploit.
+            </p>
+            <p>
+                By understanding the fundamentals of network scanning, individuals can enhance their ability to secure and defend against cyber threats.
+            </p>
+        </div>
+    </div>
+<br>
+    <div class="card">
+        <div class="card-header">
+            <h2>Installing Nmap</h2>
+        </div>
+        <div class="card-content">
+            <p>
+                Nmap, short for Network Mapper, is a powerful open-source tool widely used for network exploration and security auditing.
+            </p>
+            <p>
+                It provides a comprehensive set of features for discovering devices and services running on a computer network, enhancing the ability to understand network topologies and potential security risks.
+            </p>
+            <p>
+                Installing Nmap is a straightforward process, and it is compatible with various operating systems, including Windows, Linux, and macOS.
+            </p>
+            <p>
+                Once installed, users can leverage Nmap's capabilities to conduct detailed network scans and gather valuable information about hosts and services.
+            </p>
+        </div>
+    </div>
+<br>
+    <div class="card">
+        <div class="card-header">
+            <h2>Scanning Options and Techniques</h2>
+        </div>
+        <div class="card-content">
+            <p>
+                Nmap offers a myriad of scanning options and techniques to adapt to different scenarios and requirements.
+            </p>
+            <p>
+                Understanding these options is crucial for tailoring scans to specific objectives while ensuring efficiency and accuracy.
+            </p>
+            <p>
+                Some common scanning techniques include:
+            </p>
+            <ul>
+                <li>TCP Connect Scanning</li>
+                <li>SYN/ACK Scanning (Half-Open Scanning)</li>
+                <li>UDP Scanning</li>
+                <li>Operating System Detection</li>
+                <li>Service Version Detection</li>
+                <li>Scripting Engine</li>
+            </ul>
+            <p>
+                By mastering these scanning options and techniques, individuals can conduct thorough network assessments, identify potential security risks, and proactively address vulnerabilities to strengthen overall cybersecurity defenses.
+            </p>
+        </div>
+    </div>
+                <br>
+                <div class="section-title">
+                    <h2>Test your Skills</h2>
+                    <div>
 
-       <!-- Nmap Box -->
-<div class="row my-4">
-    <div class="col-md-12">
-        <div class="card" style="background-color: #add8e6;">
-            <div class="container">
-                <label class="font-weight-bold">
-                    <i class="fas fa-graduation-cap"></i> Nmap for beginners
-                </label>
-                <div class="control-options">
-                    <div class="task-count">Tasks Available: 3</div>
-                    <div class="progress-text">
-                        <span class="progress-icon">✅</span> Completed: 1
-                        <span class="progress-icon">⬜</span> Remaining: 2
+                <!-- Virtual Box -->
+              <div class="container quiz-container">
+        <!-- Start Machine Section -->
+        <div class="row my-4">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p class="font-weight-bold">Start the target machine, and the IP will show here</p><br>
+                        <button id="startMachineBtn" class="btn btn-dark font-weight-bold" name="nmap">Start Machine</button>
                     </div>
                 </div>
             </div>
         </div>
+<div id="alertBox" class="alert" role="alert" style="display: none;"></div>
+        <!-- Question Rows -->
+      <div class="container mt-5">
+  <div class="card-deck">
+   <div class="row">
+    <!-- Port Scanning Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Port Scanning</h5>
+        <!-- Additional content related to the title -->
+        <div class="alert alert-info" role="alert">
+            Technique to identify open ports on a target system, crucial for understanding potential entry points and vulnerabilities. </div>
+        <!-- Highlighted question -->
+        <p class="card-text font-weight-bold">Which three ports are open on the target machine?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
     </div>
+
+    <!-- Service Detection Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Service Detection</h5>
+        <!-- Additional content related to the title -->
+       <div class="alert alert-info" role="alert">Process of identifying active network services running on a system, providing insights into potential security risks.</div>
+        <p class="card-text font-weight-bold">What service is running on port 22/tcp, and what version is it?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+   </div>
+       <div class="row">
+    <!-- Port Scanning Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Web Server Information</h5>
+        <!-- Additional content related to the title -->
+        <div class="alert alert-info" role="alert">
+          Analysis of server headers, response codes, and other details to gather intelligence on a web server, aiding in security assessments.</div>
+        <!-- Highlighted question -->
+        <p class="card-text font-weight-bold">What is the title of the default web page served on port 80/tcp?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+
+    <!-- Service Detection Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">SSL/TLS Information</h5>
+        <!-- Additional content related to the title -->
+       <div class="alert alert-info" role="alert">Examination of encryption protocols, ciphersuites, and certificate details to ensure secure communication channels.</div>
+        <p class="card-text font-weight-bold">What information can be gathered from the SSL certificate on port 443/tcp?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+   </div>
+       <div class="row">
+    <!-- Port Scanning Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Operating System Detection</h5>
+        <!-- Additional content related to the title -->
+        <div class="alert alert-info" role="alert">
+          Identification of the underlying operating system of a target system, essential for tailoring security measures.   </div>
+        <!-- Highlighted question -->
+        <p class="card-text font-weight-bold">Based on the Nmap scan, what is the probable operating system of the target machine?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+
+    <!-- Service Detection Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">MAC Address Identification</h5>
+        <!-- Additional content related to the title -->
+       <div class="alert alert-info" role="alert">Recognition of unique hardware identifiers to enhance network security through effective device management.</div>
+        <p class="card-text font-weight-bold">What is the MAC address of the target machine?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+   </div>
+       <div class="row">
+    <!-- Port Scanning Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Number of Closed TCP Ports</h5>
+        <!-- Additional content related to the title -->
+        <div class="alert alert-info" role="alert">
+          Interpretation of closed TCP ports in scan results to assess potential attack surfaces and strengthen defenses.   </div>
+        <!-- Highlighted question -->
+        <p class="card-text font-weight-bold">According to the scan, how many closed TCP ports were identified?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+
+    <!-- Service Detection Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Service Scan Duration</h5>
+        <!-- Additional content related to the title -->
+       <div class="alert alert-info" role="alert">Understanding factors influencing scan duration, optimizing processes for efficiency during security assessments.</div>
+        <p class="card-text font-weight-bold">How long did the service scan take to complete?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+   </div>
+       <div class="row">
+    <!-- Port Scanning Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">SSH Host Key Type</h5>
+        <!-- Additional content related to the title -->
+        <div class="alert alert-info" role="alert">
+          Evaluation and verification of SSH host keys to prevent man-in-the-middle attacks and ensure secure remote connections.
+        </div>
+        <!-- Highlighted question -->
+        <p class="card-text font-weight-bold">What type of key is used in the SSH host key on port 22/tcp?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+
+    <!-- Service Detection Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Validity of SSL Certificate</h5>
+        <!-- Additional content related to the title -->
+       <div class="alert alert-info" role="alert">Assessment of SSL certificate expiration dates, issuer information, and certificate chains to ensure secure connections.</div>
+        <p class="card-text font-weight-bold">According to the SSL certificate on port 443/tcp, when does it expire?</p>
+        <!-- Blank input box for user's answer -->
+        <input type="text" class="form-control" placeholder="Your Answer">
+      </div>
+    </div>
+   </div>
+
+    <!-- Repeat the above structure for other questions -->
+
+  </div>
 </div>
+        <!-- Card 1: Description and Quiz -->
 
 
-
-
-
-<!-- virtual Box -->
-<div class="row my-4">
-    <div class="col-md-8 mx-auto">
-        <div class="card" class="card border-primary" style="background-color: #add8e6;">
-            <div class="card-body">
-                <p class="font-weight-bold">START MACHINE</p>
-                <p class="font-weight-bold">Start the target machine, and the IP will show here</p>
-                <button id="startMachineBtn" style="float: right;" class="btn btn-dark" class="font-weight-bold" name="nmap">Start Machine</button>
+        <!-- Overall Submit Button -->
+        <div class="row my-4">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-success btn-submit" onclick="submitAllAnswers()">Submit All Answers</button>
             </div>
         </div>
     </div>
-</div>
 
-       <!-- TASK 1 -->
-<div class="row my-4">
-    <div class="col-md-8 mx-auto text-center">
-        <div class="card border-primary" style="background-color: #add8e6;">
-            <div class="card-body">
-                <p class="font-weight-bold">TASK 1</p>
-                <p class="font-weight-bold">What is the name of the most common tool for finding open ports on a target?</p>
-                <label class="font-weight-bold">Answer:</label>
-                <input type="text" id="ans1" class="form-control" placeholder="xxxxxxxxxxxxxxx">
-                <button class="btn btn-primary mt-3" style="float: right;" onclick="markTaskCompleted(1)">Submit</button>
-            </div>
-        </div>
     </div>
-</div>
 
-<!-- TASK 2 -->
-<div class="row my-4">
-    <div class="col-md-8 mx-auto text-center">
-        <div class="card border-primary" style="background-color: #add8e6;">
-            <div class="card-body">
-                <p class="font-weight-bold">TASK 2</p>
-                <p class="font-weight-bold">What was the service running on port 80 and 443?</p>
-                <label class="font-weight-bold">Answer:</label>
-                <input type="text" id="ans2" class="form-control" placeholder="xxxxxxxxxxxxxxx">
-                <button class="btn btn-primary mt-3"style="float: right;" onclick="markTaskCompleted(2)">Submit</button>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- TASK 3 -->
-<div class="row my-4">
-    <div class="col-md-8 mx-auto text-center">
-        <div class="card border-primary" style="background-color: #add8e6;">
-            <div class="card-body">
-                <p class="font-weight-bold">TASK 3</p>
-                    <p class="font-weight-bold"> was the service running on port 3389?</p>
-                <label class="font-weight-bold">Answer:</label>
-                <input type="text" id="ans3" class="form-control" placeholder="xxxxxxxxxxxxxxx">
-                <button class="btn btn-primary mt-3" style="float: right;" onclick="markTaskCompleted(3)">Submit</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TASK 4 -->
-<div class="row my-4">
-    <div class="col-md-8 mx-auto text-center">
-        <div class="card border-primary" style="background-color: #add8e6;">
-            <div class="card-body">
-                <p class="font-weight-bold">TASK 4</p>
-                <p class="font-weight-bold">What is the CVE version of the vulnerability in the RDP?</p>
-                <label class="font-weight-bold">Answer:</label>
-                <input type="text" id="ans4" class="form-control" placeholder="xxxxxxxxxxxxxxx">
-                <button class="btn btn-primary mt-3" style="float: right;" onclick="markTaskCompleted(4)">Submit</button>
-            </div>
-        </div>
-    </div>
-</div>
-            </div></div>
-      </div> </section>
-  </main>
+        </section>
+    </main>
 <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
@@ -187,30 +378,67 @@
 <!-- Include jQuery library -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-<script>
+<!-- Add this script to your HTML file -->
+  <script>
     $(document).ready(function () {
         // Attach a click event handler to the button
         $('#startMachineBtn').click(function () {
+            document.getElementById('startMachineBtn').disabled = true;
+
+            // Show loading state
+            document.getElementById('startMachineBtn').innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            `;
+
+            // Set a timeout to simulate a process (15 seconds in this case)
+            setTimeout(() => {
+                // Enable the button and restore its original content
+                document.getElementById('startMachineBtn').disabled = false;
+                document.getElementById('startMachineBtn').innerHTML = 'Start Machine';
+            }, 12000);
             // Make an AJAX request
-            var osName = $(this).data('name');
-            $.ajax({
-                type: 'POST',
-                url: '/api/deploy-vm',
-                dataType: 'json',
-                 data: { name: osName },
-                success: function (data) {
-                    // Handle the success response
-                    console.log(data);
-                    // You can perform additional actions here
-                },
-                error: function (error) {
-                    // Handle the error response
-                    console.error(error);
-                    // You can perform additional actions here
+            var osName = 'nmap'; // You may need to get the 'name' attribute of the button, not 'data-name'
+
+            // Create a FormData object to send form data
+            var formData = new FormData();
+            formData.append('name', osName);
+
+            fetch('/api/deploy-vm', {
+                method: 'POST',
+                body: formData,  // Send the form data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                // Handle the response data as needed
+
+                 var alertMessage = ' IP Address: ' + data.ip_address;
+
+                $('#alertBox').removeClass('alert-danger'); // Remove any existing alert class
+                $('#alertBox').addClass('alert-success');
+                $('#alertBox').text(alertMessage);
+                $('#alertBox').show();
+                // Optionally, perform actions based on the response
+                if (!data.success) {
+                    // If there's an error, change the alert box to danger
+                    $('#alertBox').removeClass('alert-success');
+                    $('#alertBox').addClass('alert-danger');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle errors
             });
         });
     });
+
 </script>
+
 
 </body></html>
