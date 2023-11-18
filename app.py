@@ -205,9 +205,75 @@ def api_deploy_vm():
             'serviceofferingid': '38f991e6-0519-4d53-8f1b-2d3fb057332a',
             'templateid': os_id,
             'zoneid': 'ebeae8ad-582c-4ea7-9012-52238084af64',
-            'name': 'vm',
+            'name': 'nmap',
             'networkids': '886043f1-4289-4897-8e0e-0881b8182ec8',
             'rootdisksize': '10',
+        }
+
+        res = send_api_request(request_data)
+
+        # Check if response is valid
+        try:
+            job_id = json.loads(res)['deployvirtualmachineresponse']['jobid']
+            session['jobid'] = job_id
+        except KeyError:
+            return jsonify({'error': 'Invalid response from API'})
+
+        # Wait for the IP address with a timeout
+        timeout = 15  # Set your desired timeout in seconds
+        start_time = time.time()
+
+        while True:
+            # Query for the IP address using the job_id
+            ip_request_data = {
+                'command': 'queryAsyncJobResult',
+                'response': 'json',
+                'apikey': api_key,
+                'jobid': job_id,
+            }
+
+            ip_res = send_api_request(ip_request_data)
+
+            # Extract the IP address from the response
+            try:
+                ip_address = json.loads(ip_res)['queryasyncjobresultresponse']['jobresult']['virtualmachine']['nic'][0][
+                    'ipaddress']
+                return jsonify({'success': True, 'message': 'VM deployment initiated successfully', 'vm_name': vm_name,
+                                'ip_address': ip_address})
+            except KeyError:
+                pass  # Continue the loop if the IP address is not available yet
+
+            if time.time() - start_time > timeout:
+                return jsonify({'error': 'Timeout waiting for the IP address'}), 500
+
+            time.sleep(2)  # Adjust the sleep interval as needed
+
+    except Exception as e:
+        return jsonify({'error': f'An error occurred: {str(e)}'}), 500
+
+@app.route('/api/deploy-vm2', methods=['POST'])
+def api_deploy_vm2():
+    try:
+        # Access the data sent in the request body
+        # os_name = request.form.get('name')  # Change from reqf.form to request.form
+        # print(os_name)
+
+        os_id = '5fbb05fd-43b3-4f50-b483-b0564d15f77a'
+
+        # Generate a random VM name using uuid
+
+        vm_name = 'Sql'
+        print(vm_name)
+        request_data = {
+            'command': 'deployVirtualMachine',
+            'response': 'json',
+            'apikey': api_key,  # Assuming 'api_key' is defined somewhere in your code
+            'serviceofferingid': 'c7069951-3349-4f48-b9c6-48b76a1da15a',
+            'templateid': '5fbb05fd-43b3-4f50-b483-b0564d15f77a',
+            'zoneid': 'ebeae8ad-582c-4ea7-9012-52238084af64',
+            'name': 'sql',
+            'networkids': '886043f1-4289-4897-8e0e-0881b8182ec8',
+            'diskofferingid': 'd753d61a-7dfa-4ac7-9df4-105538929d46'
         }
 
         res = send_api_request(request_data)

